@@ -1,0 +1,3 @@
+public enum Shape {
+    TRIANGLE,SPHERE,SQUARE,BOX,CIRCLE,PYRAMID,NULL
+}
