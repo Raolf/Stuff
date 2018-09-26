@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cabb3c7d-c864-4c7c-bab9-489912bc6ee5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Area.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Box.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Calculate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Calculate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Circle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Pyramid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Pyramid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Sphere.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Sphere.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Triangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektCalc/Volume.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektCalc/Volume.class" afterDir="false" />
-    </list>
+    <list default="true" id="cabb3c7d-c864-4c7c-bab9-489912bc6ee5" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,9 +81,10 @@
     <session id="-603695980">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -126,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/src/Calculate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1258">
-              <caret line="74" column="9" lean-forward="true" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -135,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/src/Triangle.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -244,6 +233,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -261,8 +252,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -321,6 +310,7 @@
       <workItem from="1536307350430" duration="11881000" />
       <workItem from="1536740407815" duration="59000" />
       <workItem from="1537540633750" duration="2366000" />
+      <workItem from="1537943239862" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="All classes completed.&#10;body in Calculate is not defined.&#10;Organisation has not been initiated.">
       <created>1536320029363</created>
@@ -333,12 +323,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23005000" />
+    <option name="totallyTimeSpent" value="23379000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27611336" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28097165" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -407,6 +397,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Calculate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Area.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Volume.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Circle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -435,31 +446,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Area.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Volume.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Calculate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="74" column="9" lean-forward="true" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Triangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
