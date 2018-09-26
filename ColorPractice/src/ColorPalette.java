@@ -24,18 +24,21 @@ public class ColorPalette {
     }
 
     public Color getColor(int index){
-        if(index >= maxColors){
+        if(index >= maxColors || index <= 0){
             System.out.println("Index out of bounds");
             return null;
         } else if (index >= colorList.size()){
             System.out.println("Index exceeds list element value, Max value is: " + (colorList.size()-1));
             return null;
-        } else {
+        } else if (index >= 0){
             return colorList.get(index);
+        } else {
+            System.out.println("Undefined error");
+            return null;
         }
     }
     public void mixColors(int index, Color color2){
-        if(index <= maxColors){
+        if(index <= maxColors && index >= 0){
             color2.mixWith(colorList.get(index));
         }else{
             System.out.println("Index out of bounds");
