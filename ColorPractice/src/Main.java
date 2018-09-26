@@ -13,6 +13,7 @@ public class Main {
         ColorPalette palette1 = new ColorPalette(4);
         palette1.addColor(color1);
         palette1.addColor(color2);
+
         palette1.mixColors(1, color2);
         System.out.println(palette1.getColor(1).isGray());
         System.out.println(palette1.getColor(0) + " + " + palette1.getColor(1));
