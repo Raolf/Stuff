@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
+
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
@@ -27,6 +28,7 @@ public class Canvas extends Application {
     public void start(Stage primaryStage) {
         System.out.println("3");
 
+        //----Components are initialized----//
         ComboBox menu = new ComboBox();
         javafx.scene.control.Label labelMenu = new javafx.scene.control.Label("Colors:");
 
@@ -49,7 +51,7 @@ public class Canvas extends Application {
         javafx.scene.control.Label labelBlue = new javafx.scene.control.Label("Blue:");
 
 
-        OptionMethod a1 = new OptionMethod("Add Color",()->{
+        OptionMethod a1 = new OptionMethod("Add Color",()->{ //constructs OptionMethod for addColor method
 
             int r = Integer.parseInt(textRed.getText());
             int g = Integer.parseInt(textGreen.getText());
@@ -60,7 +62,7 @@ public class Canvas extends Application {
             System.out.println(colorPalette.getColors().get(colorPalette.getColors().size()-1));
         });
 
-        OptionMethod a2 = new OptionMethod("Get Color",()->{
+        OptionMethod a2 = new OptionMethod("Get Color",()->{ //constructs OptionMethod for getColor method
 
             int r = Integer.parseInt(textRed.getText());
             Color color = colorPalette.getColor(r);
@@ -73,13 +75,14 @@ public class Canvas extends Application {
             System.out.println(colorPalette.getColors().get(colorPalette.getColors().size()-1));
         });
 
-        menu2.getItems().add(a1);
+        menu2.getItems().addAll(a1,a2);
 
+        //----This section handles methods for option methods, but has not been fully implemented yet. execute still uses hardcodded addColor and getColor----//
         OptionMethod[] methods = Stream.concat(Arrays.stream(paletteMethods), Arrays.stream(colorMethods)).filter(method -> {
             //Filters all methods that with @Option annotation
             Option option = method.getAnnotation(Option.class);
             return option != null;
-        }).map(method -> {
+        }).map(method -> {//turns method elements into OptionMethod elements
             Option option = method.getAnnotation(Option.class);
 
             Object object;
@@ -101,7 +104,7 @@ public class Canvas extends Application {
                     e.printStackTrace();
                 }
             });
-        }).toArray(OptionMethod[]::new);
+        }).toArray(OptionMethod[]::new);//Converts stream to array
 
         for (OptionMethod method : methods) {
             menu2.getItems().add(method);
@@ -114,13 +117,21 @@ public class Canvas extends Application {
                 if(menu2.getValue() instanceof OptionMethod){
                     ((OptionMethod) menu2.getValue()).invoke();
                 }
+                if(menu2.getValue() == a1) {
+                    menu.getItems().removeAll(); //empties menu
+                    Rectangle rect = new Rectangle();
 
-                menu.getItems().removeAll();
-                for (int index = 0; index < colorPalette.getColors().size(); index++)
-                    menu.getItems().add(colorPalette.getColor(index));
+                    for (int index = 0; index < colorPalette.getColors().size(); index++) //refills menu with colorpalette color
+                        rect.setFill(javafx.scene.paint.Color.rgb(colorPalette.getColor(index).getRed(), colorPalette.getColor(index).getGreen(), colorPalette.getColor(index).getBlue()));
+                        rect.setHeight(20);
+                        rect.setWidth(60);
+                        menu.getItems().add(rect);
+                        rect = null;
+                    }
                 }
         };
 
+        //----Scene is initialized and adds most components----//
         javafx.scene.control.Button button = new javafx.scene.control.Button("Execute");
         button.setOnAction(execute);
 

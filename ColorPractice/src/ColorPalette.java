@@ -28,7 +28,7 @@ public class ColorPalette {
 
     //@Option("Get Color")
     public Color getColor(int index){
-        if(index > maxColors || index < 0){
+        if(index > maxColors && maxColors != 0 || index < 0){
             System.out.println("Index out of bounds");
             return null;
         } else if (index > colorList.size()){
