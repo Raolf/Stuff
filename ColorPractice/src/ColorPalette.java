@@ -15,14 +15,18 @@ public class ColorPalette {
         return maxColors;
     }
 
+    //@Option("Add Color")
     public void  addColor(Color color1){
-        if(maxColors >= colorList.size()){
+        if(maxColors == 0){
+            colorList.add(color1);
+        }else if(maxColors >= colorList.size()){
             colorList.add(color1);
         }else{
             System.out.println("Palette is full");
         }
     }
 
+    //@Option("Get Color")
     public Color getColor(int index){
         if(index > maxColors || index < 0){
             System.out.println("Index out of bounds");
@@ -37,7 +41,11 @@ public class ColorPalette {
             return null;
         }
     }
+    public ArrayList<Color> getColors (){
+        return this.colorList;
+    }
 
+    //@Option("Number Of Grey Colors")
     public int numberOfGray(){
         int numberGray = 0;
 

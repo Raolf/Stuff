@@ -14,18 +14,22 @@ public class Color {
         this.blue = blue;
     }
 
+    //@Option("Get Red Value")
     public int getRed() {
         return red;
     }
 
+    //@Option("Get Green Value")
     public int getGreen() {
         return green;
     }
 
+    //@Option("Get Blue Value")
     public int getBlue() {
         return blue;
     }
 
+    //@Option("Is Gray")
     public boolean isGray(){
         if (red==green&&green==blue){
             return true;
@@ -34,16 +38,19 @@ public class Color {
         }
     }
 
+    //@Option("Mix With")
     public void mixWith(Color color2){
         this.red = (int)((this.red+color2.getRed())*0.5);
         this.green = (int)((this.green+color2.getGreen())*0.5);
         this.blue = (int)((this.blue+color2.getBlue())*0.5);
     }
 
+    //@Option("Copy Color")
     public Color copy(){
         return new Color(this.red, this.green, this.blue);
     }
 
+    //@Option("Has Designated Values")
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
