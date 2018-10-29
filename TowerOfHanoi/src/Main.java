@@ -33,17 +33,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         System.out.println("1");
-        Canvas canvas = new Canvas();
-
-
-        Stack stack;
-        Disk disk;
-        Board board;
-
-        board = canvas.getBoard();
-        stack = board.getStack(0);
-        disk = stack.getTopDisk();
-        disk.move(canvas.getBoard().getStack(1));
 
         Application.launch();
     }

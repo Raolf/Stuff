@@ -39,4 +39,8 @@ public class Stack {
     public Board getBoard(){
         return board;
     }
+
+    public ArrayList<Disk> getList() {
+        return list;
+    }
 }

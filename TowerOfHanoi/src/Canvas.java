@@ -22,16 +22,12 @@ public class Canvas{
     public Rectangle tempRec;
     private Board board;
     private Scene scene;
-    /*public static void main(String[] args) {
-        arguments = args;
-        Application.launch();
-    }*/
+
     Disk selectedDisk = null;
+    int height = 600;
+    int width = 1000;
+
     public Canvas() {
-
-        int height = 600;
-        int width = 1000;
-
 
         arguments = new String[2];
         //------TEMP--------
@@ -59,9 +55,10 @@ public class Canvas{
             int green = (220*i%256);
             int blue = (230*i%256);
 
-            rectangle.setX(((sizeY-20*i)/2)+100);
+            rectangle.setX((sizeY-20*i)/2+width/3.0);
 
             rectangle.setY(height-sizeY*10+i*10);
+
             rectangle.setFill(Color.rgb(red, green, blue));
             rect.getChildren().add(rectangle);
         }
@@ -73,17 +70,21 @@ public class Canvas{
             public void handle(MouseEvent event) {
 
                 int stackArea = 1;
-                if (event.getX()< (1/3)*getScene().getWidth()){
+                if (event.getX() > (1/3.0)*getScene().getWidth()){
+                    if (event.getX() < (2/3.0)*getScene().getWidth()){
+                        stackArea = 2;
+                    }else {
+                        stackArea = 3;
+                    }
+                }else{
                     stackArea = 1;
-                }else if(event.getX()> (1/3)*getScene().getWidth() && event.getX()< (2/3)*getScene().getWidth()){
-                    stackArea = 2;
-                }else if(event.getX()< getScene().getWidth() && event.getX()> (2/3)*getScene().getWidth()){
-                    stackArea = 3;
                 }
+
                 if(selectedDisk == null){
                     selectedDisk = board.getStack(stackArea-1).getTopDisk();
                 }else{
                     selectedDisk.move(board.getStack(stackArea-1));
+                    selectedDisk = null;
                 }
                 System.out.println("HahAA!"+stackArea+" "+event.getX()+" "+getScene().getWidth());
             }
@@ -93,9 +94,11 @@ public class Canvas{
         }
 
     public void Update (Disk disk, Stack stack){
+
         tempRec = (Rectangle) rect.getChildren().get(disk.getSize());
-        tempRec.setX(stack.getIndex()*sizeY);
-        tempRec.setY(disk.getPos()*10);
+
+        tempRec.setX((sizeY-20*disk.getSize())/2+(width*stack.getIndex())/3.0);
+        tempRec.setY(height-disk.getPos()*10);
 
         rect.getChildren().remove(disk.getSize());
         rect.getChildren().add(disk.getSize(), tempRec);

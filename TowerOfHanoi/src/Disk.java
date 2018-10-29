@@ -14,6 +14,7 @@ public class Disk {
                 this.stack.remove(this);
                 stack.add(this);
                 this.stack = stack;
+                this.yPos = stack.getList().indexOf(this)+1;
                 try{
                     stack.getBoard().getCanvas().Update(this, this.stack);
                 }catch(Exception e){
