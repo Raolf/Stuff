@@ -4,9 +4,9 @@ public class Color {
     private int red, green, blue;
 
     public Color(int red, int green, int blue){
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
+        this.red = red%256;
+        this.green = green%256;
+        this.blue = blue%256;
     }
     public void set(int red, int green, int blue){
         this.red = red;
@@ -40,9 +40,9 @@ public class Color {
 
     //@Option("Mix With")
     public void mixWith(Color color2){
-        this.red = (int)((this.red+color2.getRed())*0.5);
-        this.green = (int)((this.green+color2.getGreen())*0.5);
-        this.blue = (int)((this.blue+color2.getBlue())*0.5);
+        this.red = (int)((this.red+color2.getRed())/2);
+        this.green = (int)((this.green+color2.getGreen())/2);
+        this.blue = (int)((this.blue+color2.getBlue())/2);
     }
 
     //@Option("Copy Color")
