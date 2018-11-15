@@ -23,7 +23,13 @@ public class Canvas extends Application {
     public Canvas(){
 
     }
-
+    /*
+    Current limitations:
+        methods must have either 0 or 1 parameters
+        available parameters:
+            Color
+        methods cannot return more than 3 primitive values or strings
+    */
     @Override
     public void start(Stage primaryStage) {
         System.out.println("3");
@@ -51,60 +57,89 @@ public class Canvas extends Application {
         javafx.scene.control.Label labelBlue = new javafx.scene.control.Label("Blue:");
 
 
-        OptionMethod a1 = new OptionMethod("Add Color",()->{ //constructs OptionMethod for addColor method
-
-            int r = Integer.parseInt(textRed.getText());
-            int g = Integer.parseInt(textGreen.getText());
-            int b = Integer.parseInt(textBlue.getText());
-
-            colorPalette.addColor(new Color(r,g,b));
-
-            System.out.println(colorPalette.getColors().get(colorPalette.getColors().size()-1));
-        });
-
-        OptionMethod a2 = new OptionMethod("Get Color",()->{ //constructs OptionMethod for getColor method
-
-            int r = Integer.parseInt(textRed.getText());
-            Color color = colorPalette.getColor(r);
-
-            textRed.setText(""+color.getRed());
-            textGreen.setText(""+color.getGreen());
-            textBlue.setText(""+color.getBlue());
-
-
-            System.out.println(colorPalette.getColors().get(colorPalette.getColors().size()-1));
-        });
-
-        menu2.getItems().addAll(a1,a2);
-
-        //----This section handles methods for option methods, but has not been fully implemented yet. execute still uses hardcodded addColor and getColor----//
+        //----This section handles methods for OptionMethods----//
         OptionMethod[] methods = Stream.concat(Arrays.stream(paletteMethods), Arrays.stream(colorMethods)).filter(method -> {
-            //Filters all methods that with @Option annotation
+            //Filters all methods with @Option annotation
             Option option = method.getAnnotation(Option.class);
             return option != null;
-        }).map(method -> {//turns method elements into OptionMethod elements
+        }).map(method -> {//turns method elements into OptionMethod
             Option option = method.getAnnotation(Option.class);
 
-            Object object;
 
-            if(Arrays.asList(paletteMethods).contains(method)){
-                object = colorPalette;
-            }else if(Arrays.asList(colorMethods).contains(method)){
-                object = menu.getValue();
-            }else{
-                object = null;
-            }
+
             return new OptionMethod(option.value(),() -> {
                 System.out.println(method.getName());
+                Object object;
+                int param = method.getParameterTypes().length;
+
+                if(Arrays.asList(paletteMethods).contains(method)){
+                    object = colorPalette;
+                }else if(Arrays.asList(colorMethods).contains(method)){
+                    object = menu.getValue();
+                }else{
+                    object = null;
+                }
+                System.out.println(method);
+                System.out.println(Arrays.asList(paletteMethods));
+                System.out.println(Arrays.asList(colorMethods));
                 try {
-                    method.invoke(object);
+                    if(param == 0){
+                        if(method.getReturnType().getSimpleName().toUpperCase() == "INT"){
+                            String reValue = (int) method.invoke(object)+"";
+                            textRed.setText(reValue);
+
+
+                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "BOOLEAN"){
+                            String reValue = (boolean) method.invoke(object)+"";
+                            textRed.setText(reValue);
+
+                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "COLOR"){
+                            Color reValue = (Color) method.invoke(object);
+                            textRed.setText(reValue.getRed()+"");
+                            textGreen.setText(reValue.getRed()+"");
+                            textBlue.setText(reValue.getRed()+"");
+
+                        }else{
+                            method.invoke(object);
+                        }
+                    }
+                    else if (param > 0){
+                        int r = 0;
+                        int g = 0;
+                        int b = 0;
+                        try{
+                            r = Integer.parseInt(textRed.getText());
+                            g = Integer.parseInt(textGreen.getText());
+                            b = Integer.parseInt(textBlue.getText());
+                        } catch (Exception e) {
+
+                            e.printStackTrace();
+                        }
+                        method.invoke(object, new Color(r,g,b));
+
+                        if(method.getReturnType().getSimpleName().toUpperCase() == "INT"){
+                            String reValue = (int) method.invoke(object, new Color(r,g,b)) + "";
+                            textRed.setText(reValue);
+                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "BOOLEAN"){
+                            String reValue = (boolean) method.invoke(object, new Color(r,g,b))+"";
+                            textRed.setText(reValue);
+                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "COLOR"){
+                            Color reValue = (Color) method.invoke(object, new Color(r,g,b));
+                            textRed.setText(reValue.getRed()+"");
+                            textGreen.setText(reValue.getRed()+"");
+                            textBlue.setText(reValue.getRed()+"");
+                        }else{
+                            method.invoke(object, new Color(r,g,b));
+                        }
+                    }
+
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
                     e.printStackTrace();
                 }
             });
-        }).toArray(OptionMethod[]::new);//Converts stream to array
+        }).toArray(OptionMethod[]::new);//Converts stream to array element
 
         for (OptionMethod method : methods) {
             menu2.getItems().add(method);
@@ -114,14 +149,13 @@ public class Canvas extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                if(menu2.getValue() instanceof OptionMethod){
+                if(menu2.getValue() instanceof OptionMethod && menu2.getValue() != null){
                     ((OptionMethod) menu2.getValue()).invoke();
-                }
-                if(menu2.getValue() == a1) {
+
                     menu.getItems().removeAll(); //empties menu
                     Rectangle rect = new Rectangle();
 
-                    for (int index = 0; index < colorPalette.getColors().size(); index++) //refills menu with colorpalette color
+                    for (int index = 0; index < colorPalette.getColors().size(); index++) //refills menu with colorPalette colors
                         rect.setFill(javafx.scene.paint.Color.rgb(colorPalette.getColor(index).getRed(), colorPalette.getColor(index).getGreen(), colorPalette.getColor(index).getBlue()));
                         rect.setHeight(20);
                         rect.setWidth(60);

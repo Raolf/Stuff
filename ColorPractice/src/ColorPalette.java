@@ -15,7 +15,7 @@ public class ColorPalette {
         return maxColors;
     }
 
-    //@Option("Add Color")
+    @Option("Add Color")
     public void  addColor(Color color1){
         if(maxColors == 0){
             colorList.add(color1);
@@ -26,7 +26,6 @@ public class ColorPalette {
         }
     }
 
-    //@Option("Get Color")
     public Color getColor(int index){
         if(index > maxColors && maxColors != 0 || index < 0){
             System.out.println("Index out of bounds");
@@ -45,7 +44,7 @@ public class ColorPalette {
         return this.colorList;
     }
 
-    //@Option("Number Of Grey Colors")
+    @Option("Number Of Grey Colors")
     public int numberOfGray(){
         int numberGray = 0;
 
