@@ -84,16 +84,16 @@ public class Canvas extends Application {
                 System.out.println(Arrays.asList(colorMethods));
                 try {
                     if(param == 0){
-                        if(method.getReturnType().getSimpleName().toUpperCase() == "INT"){
+                        if(method.getReturnType().getSimpleName().toUpperCase().equals("INT")){
                             String reValue = (int) method.invoke(object)+"";
                             textRed.setText(reValue);
 
 
-                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "BOOLEAN"){
+                        }else if(method.getReturnType().getSimpleName().toUpperCase().equals("BOOLEAN")){
                             String reValue = (boolean) method.invoke(object)+"";
                             textRed.setText(reValue);
 
-                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "COLOR"){
+                        }else if(method.getReturnType().getSimpleName().toUpperCase().equals("COLOR")){
                             Color reValue = (Color) method.invoke(object);
                             textRed.setText(reValue.getRed()+"");
                             textGreen.setText(reValue.getRed()+"");
@@ -117,13 +117,13 @@ public class Canvas extends Application {
                         }
                         method.invoke(object, new Color(r,g,b));
 
-                        if(method.getReturnType().getSimpleName().toUpperCase() == "INT"){
+                        if(method.getReturnType().getSimpleName().toUpperCase().equals("INT")){
                             String reValue = (int) method.invoke(object, new Color(r,g,b)) + "";
                             textRed.setText(reValue);
-                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "BOOLEAN"){
+                        }else if(method.getReturnType().getSimpleName().toUpperCase().equals("BOOLEAN")){
                             String reValue = (boolean) method.invoke(object, new Color(r,g,b))+"";
                             textRed.setText(reValue);
-                        }else if(method.getReturnType().getSimpleName().toUpperCase() == "COLOR"){
+                        }else if(method.getReturnType().getSimpleName().toUpperCase().equals("COLOR")){
                             Color reValue = (Color) method.invoke(object, new Color(r,g,b));
                             textRed.setText(reValue.getRed()+"");
                             textGreen.setText(reValue.getRed()+"");

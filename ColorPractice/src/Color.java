@@ -63,4 +63,10 @@ public class Color {
     public String toString() {
         return "Red: " + this.red + ", Green: " + this.green + ", Blue: " + this.blue;
     }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(red, green, blue);
+    }
 }
