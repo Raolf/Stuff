@@ -75,7 +75,7 @@ public class Canvas extends Application {
                 if(Arrays.asList(paletteMethods).contains(method)){
                     object = colorPalette;
                 }else if(Arrays.asList(colorMethods).contains(method)){
-                    object = menu.getValue();
+                    object = colorPalette.getColor(menu.getItems().indexOf(menu.getValue()));
                 }else{
                     object = null;
                 }
@@ -96,8 +96,8 @@ public class Canvas extends Application {
                         }else if(method.getReturnType().getSimpleName().toUpperCase().equals("COLOR")){
                             Color reValue = (Color) method.invoke(object);
                             textRed.setText(reValue.getRed()+"");
-                            textGreen.setText(reValue.getRed()+"");
-                            textBlue.setText(reValue.getRed()+"");
+                            textGreen.setText(reValue.getGreen()+"");
+                            textBlue.setText(reValue.getBlue()+"");
 
                         }else{
                             method.invoke(object);
@@ -126,8 +126,8 @@ public class Canvas extends Application {
                         }else if(method.getReturnType().getSimpleName().toUpperCase().equals("COLOR")){
                             Color reValue = (Color) method.invoke(object, new Color(r,g,b));
                             textRed.setText(reValue.getRed()+"");
-                            textGreen.setText(reValue.getRed()+"");
-                            textBlue.setText(reValue.getRed()+"");
+                            textGreen.setText(reValue.getGreen()+"");
+                            textBlue.setText(reValue.getBlue()+"");
                         }else{
                             method.invoke(object, new Color(r,g,b));
                         }
@@ -152,7 +152,7 @@ public class Canvas extends Application {
                 if(menu2.getValue() instanceof OptionMethod && menu2.getValue() != null){
                     ((OptionMethod) menu2.getValue()).invoke();
 
-                    menu.getItems().removeAll(); //empties menu
+                    menu.getItems().clear(); //empties menu
                     Rectangle rect = new Rectangle();
 
                     for (int index = 0; index < colorPalette.getColors().size(); index++) //refills menu with colorPalette colors

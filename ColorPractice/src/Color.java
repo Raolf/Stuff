@@ -38,7 +38,7 @@ public class Color {
         }
     }
 
-    @Option("Mix With")
+    //@Option("Mix With")
     public void mixWith(Color color2){
         this.red = (int)((this.red+color2.getRed())/2);
         this.green = (int)((this.green+color2.getGreen())/2);
@@ -59,7 +59,6 @@ public class Color {
                 green == color.green &&
                 blue == color.blue;
     }
-
     public String toString() {
         return "Red: " + this.red + ", Green: " + this.green + ", Blue: " + this.blue;
     }
