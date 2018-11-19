@@ -57,7 +57,7 @@ public class Canvas{
 
             rectangle.setX((sizeY-20*i)/2+width/3.0-1/6.0*width);
 
-            rectangle.setY(height-sizeY*10+i*10);
+            rectangle.setY(height-sizeY*10+(i-1)*10);
 
             rectangle.setFill(Color.rgb(red, green, blue));
             rect.getChildren().add(rectangle);
@@ -86,7 +86,6 @@ public class Canvas{
                     selectedDisk.move(board.getStack(stackArea-1));
                     selectedDisk = null;
                 }
-                System.out.println("HahAA!"+stackArea+" "+event.getX()+" "+getScene().getWidth());
             }
         });
 
