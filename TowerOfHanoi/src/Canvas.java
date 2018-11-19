@@ -49,13 +49,13 @@ public class Canvas{
 
 
         System.out.println(board.getDisks().size());
-        for (int i = 1; i<=board.getDisks().size(); i++){
+        for (int i = 0; i<=board.getDisks().size(); i++){
             Rectangle rectangle = new Rectangle(20*i,10);
             int red = (210*i%256);
             int green = (220*i%256);
             int blue = (230*i%256);
 
-            rectangle.setX((sizeY-20*i)/2+width/3.0);
+            rectangle.setX((sizeY-20*i)/2+width/3.0-1/6.0*width);
 
             rectangle.setY(height-sizeY*10+i*10);
 
@@ -97,7 +97,7 @@ public class Canvas{
 
         tempRec = (Rectangle) rect.getChildren().get(disk.getSize());
 
-        tempRec.setX((sizeY-20*disk.getSize())/2+(width*stack.getIndex())/3.0);
+        tempRec.setX((sizeY-20*disk.getSize())/2+(width*stack.getIndex())/3.0+1/6.0*width);
         tempRec.setY(height-disk.getPos()*10);
 
         rect.getChildren().remove(disk.getSize());
